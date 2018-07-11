@@ -7,6 +7,9 @@ class Portfolio(models.Model):
     image = models.ImageField(upload_to='images/')
     text = models.TextField()
 
+    class Meta:
+        verbose_name_plural = "Projects"
+
 
     def __str__(self):
         return self.title
