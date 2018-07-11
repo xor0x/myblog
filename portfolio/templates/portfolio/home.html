@@ -1,21 +1,23 @@
 {% extends 'index.html' %}
 
 {% block content %}
-
-<div class="album py-5 bg-light">
+<span class="d-block p-2 bg-dark text-white text-center">My Projects</span>
+<div class="album py-3 bg-light">
   <div class="container">
 
     <div class="row">
-
-      <div class="col-md-4">
-        <div class="card mb-4 box-shadow">
-          <img class="card-img-top" src="{{ job.image.url }}">
+      {% for portfolio in portfolios.all %}
+      <div class="col-md-3">
+        <div class="card mb-3 box-shadow">
+        <div class="text-center h4"> <u> {{ portfolio.title }}</u></div>
+          <img class="card-img-top" src="{{ portfolio.image.url }}" height="115" width="255">
           <div class="card-body">
-            <p class="card-text"></p>
+            <p class="card-text ">{{ portfolio.text }}</p>
+            <p class="text-center h5"> <a href="{{ portfolio.url }}">Link</a></p>
           </div>
         </div>
       </div>
-
+{% endfor %}
     </div>
   </div>
 </div>
