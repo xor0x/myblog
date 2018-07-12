@@ -4,6 +4,7 @@ class Portfolio(models.Model):
     title = models.CharField(max_length=200)
     url = models.CharField(max_length=200)
     pub_date = models.DateField()
+    title_pro = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
     text = models.TextField()
 
