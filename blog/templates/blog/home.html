@@ -2,17 +2,18 @@
 {% load staticfiles %}
 
 {% block content %}
-<div class="col-md-6">
-  <a href="blog-single.html" class="blog-entry element-animate" data-animate-effect="fadeIn">
-    <img src="{% static 'images/img_5.jpg'%}" alt="Image placeholder">
-    <div class="blog-content-body">
-      <div class="post-meta">
-        <span class="category">Food</span>
-        <span class="mr-2">March 15, 2018 </span> &bullet;
-        <span class="ml-2"><span class="fa fa-comments"></span> 3</span>
-      </div>
-      <h2>There’s a Cool New Way for Men to Wear Socks and Sandals</h2>
-    </div>
-  </a>
-  </div>
+        <div class="col-md-6">
+          <div class="card flex-md-row mb-4 box-shadow h-md-250 bg-color-news">
+            <div class="card-body d-flex flex-column align-items-start">
+              <strong class="d-inline-block mb-2 text-primary">World</strong>
+              <h3 class="mb-0">
+                <a class="text-dark" href="#">Featured post</a>
+              </h3>
+              <div class="mb-1 text-muted">Nov 12</div>
+              <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+              <a href="#">Continue reading</a>
+            </div>
+            <img class="card-img-right flex-auto d-none d-lg-block" data-src="holder.js/200x250?theme=thumb" alt="Card image cap">
+          </div>
+        </div>
 {% endblock %}
