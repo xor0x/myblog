@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from .models import BlogNews
 
 def home(request):
-    return render(request, 'blog/home.html')
+    news = BlogNews.objects
+    return render(request, 'blog/home.html', {'news':news})
