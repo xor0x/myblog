@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 #News on site
 class BlogNews(models.Model):
@@ -34,6 +35,7 @@ class Post(models.Model):
     date = models.DateTimeField()
     image = models.ImageField(upload_to="images/")
     text = models.TextField()
+    post_by = models.ForeignKey(User, on_delete=models.CASCADE,)
 
     class Meta:
         verbose_name_plural  = "Post"
