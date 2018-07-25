@@ -3,16 +3,17 @@
 
 
 {% block content %}
+<hr>
 <div class="card mb-4">
-            <img class="card-img-top" src="{{ post.image.url }}"  height="500">
-            <div class="card-body">
-              <h2 class="card-title">{{ post.title }}</h2>
-              <p class="card-text">{{post.text}}</p>
-            </div>
-            <div class="card-footer text-muted">
-              Posted on: {{ post.date }}
-              Category: <a href="#">{{ post.category }}</a>
-              Posted by:
-            </div>
-          </div>
+  <img class="card-img-top" src="{{ post.image.url }}"  height="500">
+  <div class="card-body">
+    <h2 class="card-title">{{ post.title }}</h2>
+    <p class="card-text">{{post.text}}</p>
+  </div>
+  <div class="card-footer text-muted">
+    Posted on: {{ post.date }}
+    Category: <a href="#">{{ post.category }}</a>
+    Posted by: {{ post.post_by }}
+  </div>
+</div>
 {% endblock %}

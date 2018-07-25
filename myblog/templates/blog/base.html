@@ -37,7 +37,7 @@
             <a class="nav-link" href="{% static 'resume_heb.pdf' %}">Resume Heb</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="">Blog</a>
+            <a class="nav-link" href="{% url 'portfolio' %}"">Portfolio</a>
           </li>
         </ul>
       </div>
@@ -46,18 +46,14 @@
 
   <main role="main">
 
-    <section class="jumbotron text-center">
-      <div class="container">
-        {% block news %}
-        {% endblock %}
-      </div>
-    </section>
+    {% block news %}
+    {% endblock %}
 
     <div class="container">
       <div class="row mb-2">
-      {% block content %}
-      {% endblock %}
-    </div>
+        {% block content %}
+        {% endblock %}
+      </div>
     </div>
 
 
@@ -75,68 +71,68 @@
           <!-- Content -->
           <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Klonike-X</h5>
           <p></p>
-          </div>
-          <!-- Grid column -->
-          <hr class="clearfix w-100 d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-2 mx-auto">
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
-            <ul class="list-unstyled">
-              <li>
-                <a href="#!">My Blog</a>
-              </li>
-              <li>
-                <a href="http://github.com/xor0x" target="_blank">GitHub</a>
-              </li>
-              <li>
-                <a href="#!">Twitter</a>
-              </li>
-
-            </ul>
-          </div>
-          <!-- Grid column -->
-          <hr class="clearfix w-100 d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-2 mx-auto">
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
-            <ul class="list-unstyled">
-
-
-            </ul>
-          </div>
-          <!-- Grid column -->
-          <hr class="clearfix w-100 d-md-none">
-          <!-- Grid column -->
-          <div class="col-md-2 mx-auto">
-            <!-- Links -->
-            <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
-            <ul class="list-unstyled">
-
-
-            </ul>
-          </div>
-          <!-- Grid column -->
         </div>
-        <!-- Grid row -->
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
+          <ul class="list-unstyled">
+            <li>
+              <a href="#!">My Blog</a>
+            </li>
+            <li>
+              <a href="http://github.com/xor0x" target="_blank">GitHub</a>
+            </li>
+            <li>
+              <a href="#!">Twitter</a>
+            </li>
+
+          </ul>
+        </div>
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
+          <ul class="list-unstyled">
+
+
+          </ul>
+        </div>
+        <!-- Grid column -->
+        <hr class="clearfix w-100 d-md-none">
+        <!-- Grid column -->
+        <div class="col-md-2 mx-auto">
+          <!-- Links -->
+          <h5 class="font-weight-bold text-uppercase mt-3 mb-4"></h5>
+          <ul class="list-unstyled">
+
+
+          </ul>
+        </div>
+        <!-- Grid column -->
       </div>
-      <!-- Footer Links -->
-      <hr>
+      <!-- Grid row -->
+    </div>
+    <!-- Footer Links -->
+    <hr>
 
-      <!-- Copyright -->
-      <div class="footer-copyright text-center py-3">© {% now "Y" %} Alex Misyuk
-      </div>
-      <!-- Copyright -->
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© {% now "Y" %} Alex Misyuk
+    </div>
+    <!-- Copyright -->
 
-    </footer>
-    <!-- Footer -->
+  </footer>
+  <!-- Footer -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
-  </body>
-  </html>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</body>
+</html>
