@@ -1,7 +1,19 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.contrib import admin
 
-#News on site
+
+class SiteSettings(models.Model):
+    site_title = models.CharField(max_length=200)
+    site_email = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.site_title
+
+
+
+
+#News on site start
 class BlogNews(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
@@ -12,8 +24,10 @@ class BlogNews(models.Model):
 
     def __str__(self):
         return self.title
+#News on site end
 
-#Category for Posts
+
+#Category for Posts start
 class Category(models.Model):
     name = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
@@ -25,10 +39,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.name;
+#Category for Posts end
 
 
-
-#Posts
+#Posts start
 class Post(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE,)
     title = models.CharField(max_length=200)
@@ -45,3 +59,4 @@ class Post(models.Model):
 
     def summary(self):
         return self.text[:70]
+#Posts start end
