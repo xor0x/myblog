@@ -2,15 +2,14 @@
 
 
 {% block news%}
-{% for new in news.all %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-3">{{ new.title }}</h1>
-    <p>{{ new.text }}</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Read &raquo;</a></p>
+    <h1 class="display-3">{{ news.title }}</h1>
+    <img  src="{{ news.image.url }}" height="200" width="200">
+    <p>{{ news.text }}</p>
+    <p><a class="btn btn-primary btn-lg" href="{{ news.link }}" role="button">Read &raquo;</a></p>
   </div>
 </div>
-{% endfor %}
 {% endblock %}
 
 

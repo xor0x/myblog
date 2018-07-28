@@ -18,7 +18,7 @@ class AdmSiteSettings(admin.ModelAdmin):
 
 
 class AdmNews(admin.ModelAdmin):
-    fields = ('title','image','text')
+    fields = ('title','image','text','link')
 
     def has_add_permission(self, request):
         return False

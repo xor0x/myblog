@@ -3,8 +3,8 @@ from .models import BlogNews, Post, Category, SiteSettings
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 def home(request):
-    site_settings = SiteSettings.objects.all()
-    news = BlogNews.objects
+    site_settings = SiteSettings.objects.get()
+    news = BlogNews.objects.get()
     posts = Post.objects.get_queryset().order_by('id')
     paginator = Paginator(posts,1)
     page = request.GET.get('page')

@@ -18,6 +18,7 @@ class BlogNews(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
     text = models.TextField()
+    link = models.CharField(max_length=200)
 
     class Meta:
         verbose_name_plural  = "News"

@@ -1,11 +1,10 @@
 {% extends 'blog/base.html' %}
 
-
-
 {% block content %}
 <hr>
 <div class="card mb-4">
-  <img class="card-img-top" src="{{ post.image.url }}"  height="500">
+  <br>
+  <img  src="{{ post.image.url }}"  height="300" width="300">
   <div class="card-body">
     <h2 class="card-title">{{ post.title }}</h2>
     <p class="card-text">{{post.text}}</p>
