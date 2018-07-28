@@ -10,18 +10,18 @@ class AdmSiteSettings(admin.ModelAdmin):
     fields = ['site_title', 'site_email']
 
     def has_add_permission(self, request):
-        return False
+        return True
 
 
     def has_delete_permission(self, request, obj=None):
-        return False
+        return True
 
 
 class AdmNews(admin.ModelAdmin):
     fields = ('title','image','text','link')
 
     def has_add_permission(self, request):
-        return False
+        return True
 
 
 admin.site.register(Category, CategoryAdmin)
