@@ -2,6 +2,11 @@ from django.shortcuts import render, get_object_or_404
 from .models import BlogNews, Post, Category, SiteSettings
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
+def list_of_post_category(request, category_slug):
+    category = get_object_or_404(Category, slug=category_slug)
+    post = Post.objects.filter(category=category)
+    return render(request, 'blog/post/category.html', {'post':post, 'category':category,})
+
 def home(request):
     try:
         site_settings = SiteSettings.objects.get()

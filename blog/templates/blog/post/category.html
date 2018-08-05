@@ -1,0 +1,22 @@
+{% extends 'blog/base.html' %}
+
+
+
+{% block content %}
+{% for post in post%}
+<div class="col-md-4 mt-4">
+  <div class="card profile-card-5 bg-color-news">
+    <strong class="d-inline-block mb-2 text-primary">Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a></strong>
+    <div class="mb-1 text-muted">{{ post.date }}</div>
+    <div class="card-img-block">
+      <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+    </div>
+    <div class="card-body pt-0">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.summary }}</p>
+      <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more &rarr;</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}
