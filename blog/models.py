@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.contrib import admin
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class SiteSettings(models.Model):
@@ -17,7 +18,7 @@ class SiteSettings(models.Model):
 class BlogNews(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to='images/')
-    text = models.TextField()
+    text = RichTextUploadingField()
     link = models.CharField(max_length=200)
 
     class Meta:
@@ -50,7 +51,7 @@ class Post(models.Model):
     title = models.CharField(max_length=200)
     date = models.DateTimeField()
     image = models.ImageField(upload_to="images/")
-    text = models.TextField()
+    text = RichTextUploadingField()
     post_by = models.ForeignKey(User, on_delete=models.CASCADE,)
 
     class Meta:

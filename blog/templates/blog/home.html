@@ -15,7 +15,7 @@
 <div class="banner-content">
   <h1 class="text-white text-uppercase mb-10">{{ news.title }}</h1>
   <p class="text-white mb-30">{{ news.text }}</p>
-  <a href="{{ news.link }}" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
+  <a href="{{ news.link }}" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Read More</span><span class="lnr lnr-arrow-right"></span></a>
 </div>
 {% endblock %}
 
@@ -28,7 +28,7 @@
     <div class="thumb" style="background: url({{ post.image.url }});"></div>
     <div class="desc text-center mt-30">
       <h4 class="text-white">{{ post.title }}</h4>
-      <p class="text-white">{{ post.summary }}</p>
+      <p class="text-white">{{ post.summary | safe }}</p>
       <a href="{% url 'detail' post.id %}" class="primary-btn"><span>Read More</span></a>
     </div>
   </div>
