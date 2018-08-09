@@ -1,31 +1,35 @@
 {% extends 'blog/base.html' %}
 
+{% block menu %}
+<div class="main-menubar d-flex align-items-center">
+  <nav class="hide">
+    <a href="http://github.com/xor0x" target="_blank">GitHub</a>
+    <a href="{% url 'portfolio' %}">Portfolio</a>
+
+  </nav>
+  <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+</div>
+{% endblock %}
 
 {% block news%}
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-3">{{ news.title }}</h1>
-    <img  src="{{ news.image.url }}" height="200" width="200">
-    <p>{{ news.text }}</p>
-    <p><a class="btn btn-primary btn-lg" href="{{ news.link }}" role="button">Read &raquo;</a></p>
-  </div>
+<div class="banner-content">
+  <h1 class="text-white text-uppercase mb-10">{{ news.title }}</h1>
+  <p class="text-white mb-30">{{ news.text }}</p>
+  <a href="{{ news.link }}" class="primary-btn d-inline-flex align-items-center"><span class="mr-10">Get Started</span><span class="lnr lnr-arrow-right"></span></a>
 </div>
 {% endblock %}
 
 
 {% block content %}
 {% for post in posts%}
-<div class="col-md-4 mt-4">
-  <div class="card profile-card-5 bg-color-news">
-    <strong class="d-inline-block mb-2 text-primary">Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a></strong>
-    <div class="mb-1 text-muted">{{ post.date }}</div>
-    <div class="card-img-block">
-      <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
-    </div>
-    <div class="card-body pt-0">
-      <h5 class="card-title">{{ post.title }}</h5>
-      <p class="card-text">{{ post.summary }}</p>
-      <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more &rarr;</a>
+
+<div class="col-md-4">
+  <div class="single-feature">
+    <div class="thumb" style="background: url({{ post.image.url }});"></div>
+    <div class="desc text-center mt-30">
+      <h4 class="text-white">{{ post.title }}</h4>
+      <p class="text-white">{{ post.summary }}</p>
+      <a href="{% url 'detail' post.id %}" class="primary-btn"><span>Read More</span></a>
     </div>
   </div>
 </div>
@@ -38,19 +42,19 @@
   <div class="col-lg-4 col-lg-offset-4">
     <br>
   {% if posts.has_previous %}
-  <a class="paginator-action" href="?page=1"><i class="fas fa-angle-double-left"></i></a>
-  <a class="paginator-action" href="?page={{ posts.pervious_page_number }}"><i class="fas fa-angle-left"></i></a>
+  <a class="genric-btn success-border circle arrow" href="?page=1"><span class="lnr lnr-arrow-left"></span><span class="lnr lnr-arrow-left"></span>|</a>
+  <a class="genric-btn success-border circle arrow" href="?page={{ posts.pervious_page_number }}"><span class="lnr lnr-arrow-left"></span>|</a>
   {% endif %}
   {% for num in posts.paginator.page_range %}
   {% if posts.number == num %}
-  <span class="paginator-number paginator-current" >{{ num }}</span>
+  <span class="genric-btn info circle" >{{ num }}</span>
   {% elif num > posts.number|add:'-2' and num < posts.number|add:'2' %}
-  <a class="" href="?page={{ num }}">{{ num }}</a>
+  <a class="genric-btn info circle" href="?page={{ num }}">{{ num }}</a>
   {% endif %}
   {% endfor %}
   {% if posts.has_next %}
-  <a class="paginator-action" href="?page={{ posts.next_page_number }}"><i class="fas fa-angle-right"></i></a>
-  <a class="paginator-action" href="?page={{ posts.paginator.num_pages }}"><i class="fas fa-angle-double-right"></i></a>
+   <a class="genric-btn success-border circle arrow" href="?page={{ posts.next_page_number }}">|<span class="lnr lnr-arrow-right"></span></a>
+  <a class="genric-btn success-border circle arrow" href="?page={{ posts.paginator.num_pages }}">|<span class="lnr lnr-arrow-right "></span><span class="lnr lnr-arrow-right "></span></a>
   {% endif %}
 </div>
 </div>

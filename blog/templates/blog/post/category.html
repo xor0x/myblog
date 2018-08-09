@@ -1,6 +1,17 @@
 {% extends 'blog/base.html' %}
 
 
+{% block menu %}
+<div class="main-menubar d-flex align-items-center">
+  <nav class="hide">
+    <a href="http://github.com/xor0x" target="_blank">GitHub</a>
+    <a href="{% url 'portfolio' %}">Portfolio</a>
+
+  </nav>
+  <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
+</div>
+{% endblock %}
+
 
 {% block content %}
 {% for post in post%}
