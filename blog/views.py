@@ -28,6 +28,10 @@ def home(request):
 
 
 def detail(request,post_id):
+    try:
+        site_settings = SiteSettings.objects.get()
+    except SiteSettings.DoesNotExist:
+        site_settings = None
     categorys = Category.objects.all()
     try:
         news = BlogNews.objects.get()
@@ -38,19 +42,23 @@ def detail(request,post_id):
     'post':post,
     'news':news,
     'categorys':categorys,
+    'site_settings':site_settings,
     }
     url = 'blog/detail.html'
     return render(request, url, ctx)
 
 
 def list_of_post_category(request, category_slug):
-    categorys = Category.objects.all()
+    try:
+        site_settings = SiteSettings.objects.get()
+    except SiteSettings.DoesNotExist:
+        site_settings = None
     category = get_object_or_404(Category, slug=category_slug)
     post = Post.objects.filter(category=category)
     ctx = {
     'post':post,
     'category':category,
-    'categorys':categorys,
+    'site_settings':site_settings,
     }
     url = 'blog/post/category.html'
     return render(request, url, ctx)
