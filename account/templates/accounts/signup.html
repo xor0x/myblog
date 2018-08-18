@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<div class="section-top-border">
+  <div class="row">
+    <div class="col-lg-8 col-md-8">
+      <div class="container">
+
+
+        <h3 class="mb-30">Register</h3>
+        <form class="" method="post">
+          {% csrf_token %}
+
+          {% for field in form %}
+
+          <h4 class="mb-10">
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+            <small style="display: none">{{ field.help_text }}</small>
+            {% endif %}
+            {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+            {% endfor %}
+          </h4>
+          {% endfor %}
+          <button type="submit" >Register</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

@@ -5,11 +5,20 @@
 {% endblock %}
 
 {% block menu %}
-<div class="main-menubar d-flex align-items-center">
-  <nav class="hide">
-    <a href="http://github.com/xor0x" target="_blank">GitHub</a>
-    <a href="{% url 'portfolio' %}">Portfolio</a>
 
+<div class="main-menubar d-flex align-items-center">
+
+  <nav class="hide">
+    {% if user.is_authenticated %}
+    <a class="genric-btn success-border circle" href="javascript:{document.getElementById('logout').submit()}"> Logout</a>
+    <form class="" id="logout" action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="" value="">
+        </form>
+   {% else %}
+   <a href="{% url 'login' %}" class="genric-btn success-border circle">Login</a>
+   <a href="{% url 'signup' %}" class="genric-btn success-border circle">Signup</a>
+   {% endif %}
   </nav>
   <div class="menu-bar"><span class="lnr lnr-menu"></span></div>
 </div>
