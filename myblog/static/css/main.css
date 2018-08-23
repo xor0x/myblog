@@ -2079,9 +2079,9 @@ body {
 .hero-area:after {
   content: "";
   position: absolute;
-  bottom: 20%;
+  bottom:0;
   right: 0;
-  width: 45%;
+  width: 50%;
   height: 90%;
   background: url(../img/hero-bg.png) no-repeat bottom right/contain;
   z-index: 2;
