@@ -14,7 +14,7 @@ def home(request):
         news = None
     categorys = Category.objects.all()
     posts = Post.objects.get_queryset().order_by('id')
-    paginator = Paginator(posts,1)
+    paginator = Paginator(posts,6)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     ctx = {
@@ -23,8 +23,7 @@ def home(request):
     'site_settings':site_settings,
     'categorys':categorys,
     }
-    url = 'blog/home.html'
-    return render(request, url, ctx)
+    return render(request, 'blog/home.html', ctx)
 
 
 def detail(request,post_id):
@@ -44,8 +43,7 @@ def detail(request,post_id):
     'categorys':categorys,
     'site_settings':site_settings,
     }
-    url = 'blog/detail.html'
-    return render(request, url, ctx)
+    return render(request, 'blog/detail.html', ctx)
 
 
 def list_of_post_category(request, category_slug):
@@ -60,5 +58,4 @@ def list_of_post_category(request, category_slug):
     'category':category,
     'site_settings':site_settings,
     }
-    url = 'blog/post/category.html'
-    return render(request, url, ctx)
+    return render(request, 'blog/post/category.html', ctx)

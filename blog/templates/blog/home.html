@@ -1,14 +1,14 @@
 {% extends 'blog/base.html' %}
 
 {% block title %}
-{{ site_settings.site_title }}
+Klondike-x
 {% endblock %}
 
 {% block menu %}
 
 <div class="main-menubar d-flex align-items-center">
-
   <nav class="hide">
+
     {% if user.is_authenticated %}
     <a class="genric-btn success-border circle" href="javascript:{document.getElementById('logout').submit()}"> Logout</a>
     <form class="" id="logout" action="{% url 'logout' %}" method="post">
@@ -36,13 +36,17 @@
 {% block content %}
 {% for post in posts%}
 
-<div class="col-md-4">
-  <div class="single-feature">
-    <div class="thumb" style="background: url({{ post.image.url }});"></div>
-    <div class="desc text-center mt-30">
-      <h4 class="text-white">{{ post.title }}</h4>
-      <p class="text-white">{{ post.summary | safe }}</p>
-      <a href="{% url 'detail' post.id %}" class="primary-btn"><span>Read More</span></a>
+<div class="col-md-4 mt-4">
+  <div class="card profile-card-5 bg-color-news">
+    <strong class="d-inline-block mb-2 text-primary">Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a></strong>
+    <div class="mb-1 text-muted">{{ post.date }}</div>
+    <div class="card-img-block">
+      <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+    </div>
+    <div class="card-body pt-0">
+      <h5 class="card-title">{{ post.title }}</h5>
+      <p class="card-text">{{ post.summary | safe }}</p>
+      <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more &rarr;</a>
     </div>
   </div>
 </div>
@@ -61,7 +65,7 @@
   {% for num in posts.paginator.page_range %}
   {% if posts.number == num %}
   <span class="genric-btn info circle" >{{ num }}</span>
-  {% elif num > posts.number|add:'-2' and num < posts.number|add:'2' %}
+  {% elif num > posts.number|add:'-5' and num < posts.number|add:'5' %}
   <a class="genric-btn info circle" href="?page={{ num }}">{{ num }}</a>
   {% endif %}
   {% endfor %}

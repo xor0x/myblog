@@ -27,7 +27,7 @@
     </div>
     <div class="card-body pt-0">
       <h5 class="card-title">{{ post.title }}</h5>
-      <p class="card-text">{{ post.summary }}</p>
+      <p class="card-text">{{ post.summary | safe }}</p>
       <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more &rarr;</a>
     </div>
   </div>
