@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import auth
 from .forms import SignUpForm
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, update_session_auth_hash
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
+from django.contrib.auth.decorators import login_required
 
 def signup(request):
     if request.method == 'POST':
@@ -39,3 +41,9 @@ def logout(request):
         return redirect('home')
 
     return render(request, 'accounts/signup.html')
+
+def password_change(request):
+    return redirect('home')
+
+def password_change_done(request):
+    return redirect('home')
