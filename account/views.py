@@ -42,8 +42,5 @@ def logout(request):
 
     return render(request, 'accounts/signup.html')
 
-def password_change(request):
-    return redirect('home')
-
-def password_change_done(request):
+def password_reset(request):
     return redirect('home')
