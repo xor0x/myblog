@@ -29,7 +29,7 @@ Klondike-x
 
     <div class="entity_content">
         <p class="blockquote">
-          {{ post.summary | safe }}
+          {{ post.summary | safe }} ... <a href="{% url 'detail' post.id %}" target="_self">Read More</a>
         </p>
     </div>
     <!-- entity_content -->
