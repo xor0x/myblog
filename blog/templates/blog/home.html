@@ -79,7 +79,7 @@ Klondike-x
                                     alt="Generic placeholder image" height="150" width="200">
           <h3>{{ news.title }}</h3>
 
-          <p>{{ news.text }}</p>
+          <p>{{ news.text | safe }}</p>
           <form>
             <input type="button" value="Read More" onclick="window.location.href='{{ news.link }}'" />
           </form>
