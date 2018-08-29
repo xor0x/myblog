@@ -18,19 +18,39 @@
 
 {% block content %}
 {% for post in post%}
-<div class="col-md-4 mt-4">
-  <div class="card profile-card-5 bg-color-news">
-    <strong class="d-inline-block mb-2 text-primary">Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a></strong>
-    <div class="mb-1 text-muted">{{ post.date }}</div>
-    <div class="card-img-block">
-      <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
-    </div>
-    <div class="card-body pt-0">
-      <h5 class="card-title">{{ post.title }}</h5>
-      <p class="card-text">{{ post.summary | safe }}</p>
-      <a href="{% url 'detail' post.id %}" class="btn btn-primary">Read more &rarr;</a>
-    </div>
-  </div>
+<div class="col-md-6">
+
+<div class="category_article_body">
+
+           <div class="top_article_img">
+               <img class="img-responsive" src="{{ post.image.url }}" height="200" width="350"alt="feature-top">
+           </div>
+           <!-- row -->
+
+           <div class="category_article_title">
+               <h5><a href="{% url 'detail' post.id %}" target="_blank">{{ post.title }}</a></h5>
+           </div>
+           <!-- row -->
+
+           <div class="article_date">
+               <a href="#">{{ post.date }}</a>, Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a>
+           </div>
+           <!-- row -->
+
+           <div class="category_article_content">
+               {{ post.summary | safe }}
+           </div>
+           <!-- row -->
+
+           <div class="article_social">
+               <span><a href="#"><i class="fa fa-share-alt"></i>424 </a> Shares</span>
+               <span><i class="fa fa-comments-o"></i><a href="#">4</a> Comments</span>
+           </div>
+
+           <!-- row -->
+
+       </div>
+
 </div>
 {% endfor %}
 {% endblock %}

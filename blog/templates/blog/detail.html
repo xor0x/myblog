@@ -13,25 +13,48 @@
 {% endblock %}
 
 {% block content %}
-<div class="white-bg">
-  <div class="container">
-    <div class="section-top-border">
-      <h3 class="mb-30">{{ post.title }}</h3>
-      <div class="row">
-        <div class="col-md-3">
-          <img src="{{ post.image.url }}" alt="" class="img-fluid">
-        </div>
-        <div class="col-md-9 mt-sm-20">
-          <p class="sample-text">{{ post.text | safe }}</p>
-        </div>
+
+  <div class="entity_wrapper">
+      <div class="entity_title">
+          <h1><a href="#">{{ post.title }}</a></h1>
       </div>
-    </div>
+      <!-- entity_title -->
+
+      <div class="entity_meta"><a href="#" target="_self">{{ post.date }}</a>, by: <a href="#" target="_self">{{ post.post_by }}</a> Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a>
+      </div>
+
+
+      <div class="entity_thumb">
+          <img class="img-responsive" src="{{ post.image.url }}" height="200" width="350" alt="feature-top">
+      </div>
+      <!-- entity_thumb -->
+
+      <div class="entity_content">
+          <p>
+              {{ post.text | safe }}
+          </p>
+      </div>
+      <!-- entity_content -->
+
+      <div class="entity_footer">
+          <div class="entity_tag">
+              <span class="blank"><a href="#">Tech</a></span>
+              <span class="blank"><a href="#">Transport</a></span>
+              <span class="blank"><a href="#">Mobile</a></span>
+              <span class="blank"><a href="#">Gadgets</a></span>
+          </div>
+          <!-- entity_tag -->
+
+          <div class="entity_social">
+              <span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>
+              <span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>
+          </div>
+          <!-- entity_social -->
+
+      </div>
+      <!-- entity_footer -->
+
   </div>
-  <div class="card-footer text-muted">
-    Posted on: {{ post.date }}
-    Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a>
-    Posted by: {{ post.post_by }}
-  </div>
-  </div>
+  <!-- entity_wrapper -->
 
 {% endblock %}

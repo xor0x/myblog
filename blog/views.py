@@ -14,7 +14,7 @@ def home(request):
         news = None
     categorys = Category.objects.all()
     posts = Post.objects.get_queryset().order_by('id')
-    paginator = Paginator(posts,6)
+    paginator = Paginator(posts,3)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     ctx = {
