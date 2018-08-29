@@ -61,5 +61,5 @@ class Post(models.Model):
         return self.title
 
     def summary(self):
-        return self.text[:70]
+        return self.text[:200]
 #Posts start end
