@@ -10,7 +10,9 @@
         </h1>
     </div>
     <!-- entity_title -->
-
+<div class="social">
+    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a> {{ post.watch_total }}
+  </div>
     <div class="entity_meta">
         <a href="#">{{ post.date }}</a>, Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a>
     </div>
@@ -23,11 +25,24 @@
 
     <div class="entity_content">
         <p class="blockquote">
-          {{ post.summary | safe }} ... <a href="{% url 'detail' post.id %}" target="_self">Read More</a>
+          {{ post.summary | safe }} 
+
         </p>
     </div>
     <!-- entity_content -->
+    <div class="entity_footer">
+        <div class="entity_tag">
+            <span class="blank"><a href="{% url 'detail' post.id %}">Read More</a></span>
+        </div>
+        <!-- entity_tag -->
 
+        <div class="entity_social">
+            <span><i class="fa fa-eye"></i> {{ post.watch_total }} <a href="#">Watched</a> </span>
+            <span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>
+        </div>
+        <!-- entity_social -->
+
+    </div>
 </div>
 <!-- entity_wrapper -->
 <hr>

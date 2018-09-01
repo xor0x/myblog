@@ -52,6 +52,7 @@ class Post(models.Model):
     date = models.DateTimeField()
     image = models.ImageField(upload_to="images/")
     text = RichTextUploadingField()
+    watch_total = models.IntegerField(default=1)
     post_by = models.ForeignKey(User, on_delete=models.CASCADE,)
 
     class Meta:

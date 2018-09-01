@@ -37,6 +37,8 @@ def detail(request,post_id):
     except BlogNews.DoesNotExist:
         news = None
     post = get_object_or_404(Post, pk=post_id)
+    post.watch_total += 1
+    post.save()
     ctx = {
     'post':post,
     'news':news,
