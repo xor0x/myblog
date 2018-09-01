@@ -30,7 +30,8 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'portfolio.apps.PortfolioConfig',
     'blog.apps.BlogConfig',
-    'account',
+    'account.apps.AccountConfig',
+    'blog.apps.SuitConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+    'avatar'
+
 ]
 
 CKEDITOR_UPLOAD_PATH = "uploads/"

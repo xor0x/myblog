@@ -5,6 +5,8 @@ from .forms import SignUpForm
 from django.contrib.auth import authenticate, update_session_auth_hash
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
+from django.http import HttpResponse, HttpResponseRedirect
 
 def signup(request):
     if request.method == 'POST':
@@ -39,8 +41,16 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
-
     return render(request, 'accounts/signup.html')
+
+
+@login_required
+def profile(request):
+    return render(request, 'accounts/profile.html')
+
+
+
+
 
 def password_reset(request):
     return redirect('home')
