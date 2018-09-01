@@ -10,9 +10,7 @@
         </h1>
     </div>
     <!-- entity_title -->
-<div class="social">
-    <a href="#"><i class="fa fa-eye" aria-hidden="true"></i></a> {{ post.watch_total }}
-  </div>
+
     <div class="entity_meta">
         <a href="#">{{ post.date }}</a>, Category: <a href="{% url 'list_of_post_category' post.category.slug %}">{{ post.category }}</a>
     </div>
@@ -25,7 +23,7 @@
 
     <div class="entity_content">
         <p class="blockquote">
-          {{ post.summary | safe }} 
+          {{ post.summary | safe }}
 
         </p>
     </div>
