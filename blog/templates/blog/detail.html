@@ -1,5 +1,5 @@
 {% extends 'blog/base.html' %}
-
+{% load avatar_tags %}
 {% block title %}
 - {{ post.title }}
 {% endblock %}
@@ -46,8 +46,7 @@
           <!-- entity_tag -->
 
           <div class="entity_social">
-              <span><i class="fa fa-share-alt"></i>424 <a href="#">Shares</a> </span>
-              <span><i class="fa fa-comments-o"></i>4 <a href="#">Comments</a> </span>
+              <span><i class="fa fa-comments-o"></i>{{ post.comments.count }} <a href="#">Comments</a> </span>
           </div>
           <!-- entity_social -->
 
@@ -56,5 +55,59 @@
 
   </div>
   <!-- entity_wrapper -->
+
+  <div class="readers_comment">
+    <div class="entity_inner__title header_purple">
+        <h2>Comments</h2>
+    </div>
+    <!-- entity_title -->
+    	{% if user.is_authenticated %}
+    {% for comment in post.comments.all %}
+    <div class="media">
+        <div class="media-body">
+            <h2 class="media-heading"><a href="#">{% avatar user class="img-circle img-responsive" id="user_avatar" %} {{ comment.author }}</a></h2>
+            <div class="date">{{ comment.created_date }}</div>
+            {{ comment.text|linebreaks }}
+            {% empty %}
+            <h2>No comments</h2>
+        </div>
+    </div>
+    {% endfor %}
+
+
+    <div class="entity_comments">
+    <div class="entity_inner__title header_black">
+        <h2>Add a Comment</h2>
+    </div>
+    <!--Entity Title -->
+
+    <div class="entity_comment_from">
+      {% if empty %}
+      <div class="container">
+        <div class="alert alert-danger" role="alert">
+          Enter
+        </div>
+      </div>
+      <br>
+      {% endif %}
+      <form class="" action="{% url 'add_comment' pk=post.pk %}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+
+        <textarea name="text" rows="10" cols="80"></textarea>
+        <br>
+        <input class="btn btn-primary" type="submit" name="" value="Add comment ">
+      </form>
+
+    </div>
+    <!--Entity Comments From -->
+    {% else %}
+    <h2>Please <a href="{% url 'signup' %}" class="genric-btn success-border circle">Signup</a> to view/add comments</h2>
+    {% endif %}
+</div>
+
+
+
+</div>
+
 
 {% endblock %}
