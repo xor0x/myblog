@@ -24,6 +24,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+SITE_ONLINE = True
+
 
 # Application definition
 
@@ -41,8 +43,10 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'avatar',
-
+    'django_filters',
 ]
+
+
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 

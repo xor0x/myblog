@@ -3,6 +3,9 @@ from .models import BlogNews, Post, Category, SiteSettings
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.contrib.auth.decorators import login_required
 from .forms import CommentForm
+from .filters import PostFilter
+
+
 
 
 def home(request):
@@ -16,7 +19,9 @@ def home(request):
         news = None
     categorys = Category.objects.all()
     posts = Post.objects.get_queryset().order_by('-id')
-    paginator = Paginator(posts,3)
+    popular_posts = Post.objects.get_queryset().order_by('watch_total')
+    paginator = Paginator(posts,6)
+    popular_page = Paginator(popular_posts,5)
     page = request.GET.get('page')
     posts = paginator.get_page(page)
     ctx = {
@@ -24,6 +29,7 @@ def home(request):
     'posts':posts,
     'site_settings':site_settings,
     'categorys':categorys,
+    'popular_posts':popular_posts,
     }
     return render(request, 'blog/home.html', ctx)
 
@@ -81,3 +87,15 @@ def add_comment(request, pk):
     else:
         form = CommentForm()
     return render(request, 'blog/detail.html', {'form': form})
+
+
+
+
+def search(request):
+    post_list = Post.objects.all()
+    post_filter = PostFilter(request.GET, queryset=post_list)
+    return render(request, 'blog/search.html', {'filter': post_filter})
+
+
+def offline(request):
+    return render(request, 'blog/offline.html')

@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 
 class AdmSiteSettings(admin.ModelAdmin):
-    fields = ['site_title', 'site_email']
+    fields = ['site_title', 'site_email', 'site_online']
 
     def has_add_permission(self, request):
         return True

@@ -93,7 +93,7 @@
       <form class="" action="{% url 'add_comment' pk=post.pk %}" enctype="multipart/form-data" method="POST">
         {% csrf_token %}
 
-        <textarea name="text" rows="10" cols="80"></textarea>
+        <textarea name="text" rows="8" cols="60"></textarea>
         <br>
         <input class="btn btn-primary" type="submit" name="" value="Add comment ">
       </form>
